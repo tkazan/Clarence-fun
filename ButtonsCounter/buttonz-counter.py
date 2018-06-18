@@ -67,7 +67,7 @@ def buttons_counter(list_of_links_and_contents):
             list_of_links_and_btn_amt.append([link, len(total_buttons)])
         except TypeError:
             list_of_links_and_btn_amt.append(
-                ['{} - WARNING! Link does not work.'.format(link), 0])
+                [link, 0])
     sorted_list_of_links_and_btn_amt = sorted(list_of_links_and_btn_amt,
                                               key=lambda x: x[1], reverse=True)
     return sorted_list_of_links_and_btn_amt
