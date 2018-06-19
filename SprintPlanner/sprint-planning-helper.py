@@ -1,6 +1,6 @@
 import sys
 import csv
-from pprint import pprint
+
 
 def inputs_checker():
     """Check command line arguments and if all are correct return them"""
@@ -40,7 +40,8 @@ def sorted_tasks_list_creator(arguments):
             ksp = int(row['KSP'])
             profit_index = ksp / story_points
             if story_points <= velocity:
-                csv_content_list.append([task_id, story_points, ksp, profit_index])
+                csv_content_list.append([task_id, story_points,
+                                         ksp, profit_index])
         csv_content_list.sort(key=lambda x: x[1], reverse=True)
         csv_content_list.sort(key=lambda x: x[3], reverse=True)
         return csv_content_list

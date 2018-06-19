@@ -22,14 +22,14 @@ def inputs_checker():
         print("WARNING! There is no such file or directory '{}'.".format(input_file_path))
         sys.exit()
     else:
-        arguments = [input_file_path, output_file_path]
-        return arguments
+        cli_args = [input_file_path, output_file_path]
+        return cli_args
 
 
-def list_of_websites_links_and_content_creator(arguments):
+def links_and_content_list_creator(arguments):
     """Take a file path from a command line arguments
     and return list of each link with its content out of the file."""
-    list_of_links_and_contents = []
+    links_and_contents_list = []
     with open(arguments[0]) as f:
         for line in f:
             link = line.strip()
@@ -38,15 +38,15 @@ def list_of_websites_links_and_content_creator(arguments):
                 html = r.content
             except requests.exceptions.RequestException:
                 html = None
-            list_of_links_and_contents.append([link, html])
-        return list_of_links_and_contents
+            links_and_contents_list.append([link, html])
+        return links_and_contents_list
 
 
-def buttons_counter(list_of_links_and_contents):
+def buttons_counter(list_with_links_and_contents):
     """Loop through the list_of_links_and_contents
     and return a list of links and buttons amount in each"""
     list_of_links_and_btn_amt = []
-    for element in list_of_links_and_contents:
+    for element in list_with_links_and_contents:
         link = element[0]
         html = element[1]
         try:
@@ -84,10 +84,10 @@ def output_file_generator(arguments, sorted_list_of_links_and_btn_amt):
 
 
 if __name__ == '__main__':
-    arguments = inputs_checker()
-    list_of_links_and_contents = list_of_websites_links_and_content_creator(arguments)
-    sorted_list_of_links_and_btn_amt = buttons_counter(list_of_links_and_contents)
-    output_file_generator(arguments, sorted_list_of_links_and_btn_amt)
+    args = inputs_checker()
+    list_of_links_and_contents = links_and_content_list_creator(args)
+    links_and_btn_amt_sorted_list = buttons_counter(list_of_links_and_contents)
+    output_file_generator(args, links_and_btn_amt_sorted_list)
     print("Success! The csv file: {} with links and "
-          "counted buttons in each has been created.".format(arguments[1]))
+          "counted buttons in each has been created.".format(args[1]))
 
