@@ -1,11 +1,30 @@
 # CLARENCE FUN
 ### 1. SPRINT PLANNER
+
+<p>Program help to choose tasks for for next sprint.
+Each task has id, story_points and KSP(Knowledge and Skill Points).
+The goal is to choose task with maximum KSP but sum of story_points
+can't exceed team velocity.</p>
+
+<p>Python script take exaclty 2 CLI arguments
+(first for input csv file, second for team velocity</p>
+
+<p>Script read rows from csv file, reject tasks with story_points over team 
+velocity, count profit indexes for each task and add to list of tasks.
+Next list is sorted, firstly by story_points and secondly by profit indexes 
+both descending</p>
+
+<p>Afterwards program is taking task with the biggest profit indexes as long
+as sum of their story_points is less than team velocity. Finally program give 
+output with indexes of chosen tasks.</p>
+
 <p></p>
 
 <hr>
 
 ### 2. BUTTONS COUNTER
-<p>Python script that take exactly 2 CLI arguments 
+
+<p>Python script take exactly 2 CLI arguments 
 (first for input file and second for output file).<p>
 
 <p>Script take website links from input file, 
@@ -18,12 +37,12 @@ make connection and read content of each (requests).</p>
 - classes that contains (case insensitive): btn, button (regex)
 </p>
 
-<p>Afterwards script sum all of found buttons 
+<p>Afterwards script count all of found buttons 
 (buttons with button tag and class btn or 
 buttons that have multiple btn or button classes are counted only once)
 and list them in a pairs link-number_of_buttons</p>
 
-<p>Covert list to sorted by number of buttons descending and finally
+<p>Convert list to sorted by number of buttons descending and finally
 write pairs: link, number_of_buttons to the output csv file</p>
 
 <hr>
