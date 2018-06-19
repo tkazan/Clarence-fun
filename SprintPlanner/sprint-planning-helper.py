@@ -42,8 +42,7 @@ def sorted_tasks_list_creator(arguments):
             if story_points <= velocity:
                 csv_content_list.append([task_id, story_points,
                                          ksp, profit_index])
-        csv_content_list.sort(key=lambda x: x[1], reverse=True)
-        csv_content_list.sort(key=lambda x: x[3], reverse=True)
+        csv_content_list.sort(key=lambda x: (x[3], x[1]), reverse=True)
         return csv_content_list
 
 
@@ -52,16 +51,16 @@ def task_chooser(tasks_list, arguments):
     that don't exceed velocity value and write to STDOUT their indexes"""
     velocity = arguments[1]
     total_story_points = 0
-    chosen_tasks_list = []
+    chosen_tasks = []
     for task in tasks_list:
         if total_story_points == velocity:
             break
         elif total_story_points + task[1] <= velocity:
             total_story_points += task[1]
-            chosen_tasks_list.append(task[0])
-    chosen_tasks_list.sort()
-    chosen_tasks_list = [str(task) for task in chosen_tasks_list]
-    sys.stdout.write(', '.join(chosen_tasks_list) + '\n')
+            chosen_tasks.append(task[0])
+    chosen_tasks.sort()
+    chosen_tasks = [str(task) for task in chosen_tasks]
+    sys.stdout.write(', '.join(chosen_tasks) + '\n')
 
 
 if __name__ == '__main__':
