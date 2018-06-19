@@ -56,3 +56,5 @@ pip install:
 - requests
 - bs4
 - lxml
+
+<strong>OR</strong> pip install -r requirements.txt
