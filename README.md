@@ -4,15 +4,17 @@
 <p>Program help to choose tasks for for next sprint.
 Each task has id, story_points and KSP(Knowledge and Skill Points).
 The goal is to choose task with maximum KSP but sum of story_points
-can't exceed team velocity.</p>
+can't exceed team velocity.
+It's an approximation algorithm but it's efficiency and performance 
+should be enough for a large set.</p>
 
 <p>Python script take exaclty 2 CLI arguments
-(first for input csv file, second for team velocity</p>
+(first for input csv file, second for team velocity) and check them.</p>
 
 <p>Script read rows from csv file, reject tasks with story_points over team 
-velocity, count profit indexes for each task and add to list of tasks.
-Next list is sorted, firstly by story_points and secondly by profit indexes 
-both descending</p>
+velocity, count profit indexes (KSP / story_points)for each task and add to list of tasks.
+Next list of tasks is sorted, firstly by story_points and secondly by profit indexes 
+both descending.</p>
 
 <p>Afterwards program is taking task with the biggest profit indexes as long
 as sum of their story_points is less than team velocity. Finally program give 
