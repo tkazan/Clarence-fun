@@ -4,7 +4,7 @@
 <p>Program help to choose tasks for for next sprint.
 Each task has id, story_points and KSP(Knowledge and Skill Points).
 The goal is to choose task with maximum KSP but sum of story_points
-can't exceed team velocity.
+can't exceed team velocity. <br/>
 It's an approximation algorithm but it's efficiency and performance 
 should be enough for a large set.</p>
 
@@ -20,7 +20,8 @@ both descending.</p>
 as sum of their story_points is less than team velocity. Finally program give 
 output with indexes of chosen tasks.</p>
 
-<p></p>
+<p>Module name: sprint-planning-helper.py<br/>
+Example of use from CLI: sprint-planning-helper.py test-file.csv 5</p>
 
 <hr>
 
@@ -46,6 +47,9 @@ and list them in a pairs link-number_of_buttons</p>
 
 <p>Convert list to sorted by number of buttons descending and finally
 write pairs: link, number_of_buttons to the output csv file</p>
+
+<p>Module name: buttonz-counter.py<br/>
+Example of use from CLI: buttonz-counter.py website_to_scrape.txt text.csv</p>
 
 <hr>
 
